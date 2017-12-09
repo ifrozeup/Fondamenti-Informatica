@@ -1,2 +1,2 @@
 # Fondamenti-di-informatica
-esercizi ed esempi
+Esercizi ed esempi svolti in classe e in laboratorio.
