@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> //probabilmente non necessaria
 
 typedef struct nodo{
     int dato;
@@ -10,7 +10,7 @@ typedef struct nodo{
 typedef el* elnodo;
 
 void inserisciElemento(elnodo lista, int num, int pos);
-int lunghezzaLista(elnodo lista);
+int lunghezzaLista(elnodo lista); //bisognerebbe rifarla ricorsiva per evitare di usare l'indirizzo di appoggio mem
 void cancellaRipetizioni(elnodo lista);
 void printLista(elnodo lista);
 void subcanc(elnodo lista, int dato);
@@ -44,7 +44,6 @@ int main(){
 
         printLista(lista);
 
-
     }while(num != 0);
 
     mem = lista;
@@ -60,18 +59,17 @@ int main(){
     cancellaRipetizioni(lista);
     printLista(lista);
 
+    /*
     lista = mem;
-
     num = lunghezzaLista(lista);
     printf("\nLa dimensione della lista e': %d\n\n", num);
+    */
 
     lista = mem;
 
     printf("\n\nOra sommo la lista:\n");
     sommaLista(lista);
     printLista(lista);
-
-    printf("\n\n\n\n\n");
 
     return 0;
 }
@@ -142,7 +140,7 @@ void inserisciElemento(elnodo lista, int num, int pos) //dato un dato e la posiz
     ptr->dato = num;
     ptr->next = lista->next;
     lista->next=ptr;
-}
+} //questa funzione non è ancora in grado di inserire un elemento in testa. Inserire come posizione 0, 1 o 2 porta quindi allo stesso risultato. 
 
 int lunghezzaLista(elnodo lista) //restituisce la dimensione della lista
 {
