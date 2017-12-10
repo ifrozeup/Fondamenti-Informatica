@@ -1,6 +1,7 @@
+//NON FUNZIONANTE 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <string.h> //probabilmente non necessario
 #define dim 4
 
 typedef struct V{
@@ -31,7 +32,8 @@ void checkPasseggeri(Partenze lista, int num);
 void decolla(Partenze lista, int codPers, int oraPers, int minPers);
 void printVoli(Partenze lista);
 void loadVoli(Partenze lista, FILE* filebin);
-void loadVoliVett (Vol voli[dim], FILE* filebin);
+void loadVoliVett (Vol voli[dim], FILE* filebin); //alternativa "vettoriale" funzionante
+void printVoliVett(Vol voli[dim]); //alternativa "vettoriale" funzionante
 
 int a = 0;
 
@@ -89,7 +91,7 @@ void loadVoliVett (Vol voli[dim], FILE* filebin){
 
 }
 
-void loadVoli(Partenze lista, FILE* filebin){
+void loadVoli(Partenze lista, FILE* filebin){ //è come se non concatenasse la lista
 
     lista = malloc(sizeof(Partenza));
     lista->Volo = malloc(sizeof(Vo));
@@ -115,8 +117,8 @@ void printVoli(Partenze lista){
 }
 
 void printVoliVett(Vol voli[dim]){
+    
         int c;
-
         for(c=0; c<dim; c++)
         {
             printf("\nCODICE VOLO: %d", voli[c]->codice);
@@ -138,7 +140,6 @@ void decolla(Partenze partenza, int codPers, int oraPers, int minPers){
     partenza->Volo->oraEff = oraPers;
     partenza->Volo->minEff = minPers;
     printf("\nVolo decollato!\n");
-
 
 }
 
