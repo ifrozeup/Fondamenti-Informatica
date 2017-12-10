@@ -1,6 +1,14 @@
+/*
+LA LISTA NON FUNZIONA
+non riesce a fare lista = lista->next
+con i vettori funziona ma fa schifo
+
+COME SI CALCOLA LA DIMENSIONE DI UN FILE BINARIO?
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
-#define dim 4
+#define dim 4 //da aggiornare
 
 typedef struct V{
 
@@ -26,8 +34,6 @@ void checkPasseggeri(Partenza* lista, int num);
 void decolla(Partenza* lista, int codPers, int oraPers, int minPers);
 void printVoli(Partenza* lista);
 void loadVoli(Partenza* lista, FILE* filebin);
-
-int a = 0;
 
 int main(){
 
@@ -95,7 +101,7 @@ void loadVoli(Partenza* lista, FILE* filebin){
     fread(lista->Volo, sizeof(infoVolo), 1, filebin);
 }
 
-void printVoli(Partenza* lista){
+void printVoli(Partenza* lista){ //dato un puntatore stampa l'elemento e tutti i successivi
 
     printf("\nCODICE VOLO: %d", lista->Volo->codice);
     printf("\nDestinazione: %c%c%c", lista->Volo->destinazione[0], lista->Volo->destinazione[1], lista->Volo->destinazione[2]);
@@ -109,7 +115,7 @@ void printVoli(Partenza* lista){
         printVoli(lista->next);
 }
 
-void decolla(Partenza* lista, int codPers, int oraPers, int minPers){
+void decolla(Partenza* lista, int codPers, int oraPers, int minPers){ //modifica l'orario effettivo di partenza di un volo
 
     if((lista->Volo->codice) != codPers)
     {
