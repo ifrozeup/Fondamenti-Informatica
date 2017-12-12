@@ -35,6 +35,8 @@ void decolla(Partenza* lista, int codPers, int oraPers, int minPers);
 void printVoli(Partenza* lista);
 void loadVoli(Partenza* lista, FILE* filebin);
 
+int cont = 0; 
+
 int main(){
 
     Partenza* lista;
@@ -97,8 +99,15 @@ int main(){
 }
 
 void loadVoli(Partenza* lista, FILE* filebin){
-
-    fread(lista->Volo, sizeof(infoVolo), 1, filebin);
+    if(cont<dim)
+    {
+        lista = malloc(sizeof(Partenza));
+        lista->Volo = malloc(sizeof(infoVolo));
+        lista->next = NULL;
+        fread(lista->Volo, sizeof(infoVolo), 1, filebin);
+        cont++;
+        loadVoli(lista->next, filebin);
+    }
 }
 
 void printVoli(Partenza* lista){ //dato un puntatore stampa l'elemento e tutti i successivi
