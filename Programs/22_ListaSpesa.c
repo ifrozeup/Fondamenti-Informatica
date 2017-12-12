@@ -86,13 +86,13 @@ spesa addLista(spesa lista, spesa nodo) //inserisce il nodo creato nella posizio
         return lista;
     }
 
-    if(!strcmp(lista->nome, nodo->nome)) //caso 2: si sta aggiornando la quantità di un prodotto già presente
+    if(!strcmp(lista->nome, nodo->nome)) //caso 2: si sta aggiornando la quantitÃ  di un prodotto giÃ  presente
     {
         lista->qta += nodo->qta;
         return lista;
     }
 
-    if(lista->next != NULL) //controlla che l'elemento non sia già nella lista
+    if(lista->next != NULL) //controlla che l'elemento non sia giÃ  nella lista
         return addLista(lista->next, nodo);
 
     lista->next = nodo; //caso 3: si sta aggiungendo un nuovo nodo alla lista
