@@ -79,14 +79,14 @@ void subAddLista(Pro* ls, Pro* nodo) //aggiunge in coda alla lista
     }
 }
 
-int udQta(Pro* ls, Pro* nodo) //aggiorna la quantità ricorsivamente
+int udQta(Pro* ls, Pro* nodo) //aggiorna la quantitÃ  ricorsivamente
 {
-    if(!strcmp(ls->nome, nodo->nome)) //caso 2: si sta aggiornando la quantità di un prodotto già presente
+    if(!strcmp(ls->nome, nodo->nome)) //caso 2: si sta aggiornando la quantitÃ  di un prodotto giÃ  presente
     {
         ls->qta += nodo->qta;
         return 1;
     }
-    else if(ls->next != NULL) //controlla che l'elemento non sia già nella lista
+    else if(ls->next != NULL) //controlla che l'elemento non sia giÃ  nella lista
         {
             return udQta(ls->next, nodo);
         }
