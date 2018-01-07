@@ -22,9 +22,7 @@ int main(){
     int k = 2;
 
     CreateList(ptr);
-
     InsDalFondo(*ptr, &k, 99);
-
     PrintList(lista);
 
     return 0;
