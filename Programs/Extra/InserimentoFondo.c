@@ -12,6 +12,7 @@ void addLista(Nodo** ptrls, Nodo* nodo);
 void subAddLista(Nodo* ls, Nodo* nodo);
 void createEl(Nodo** ptrls);
 void CreateList(Nodo** ptr);
+
 void InsDalFondo(Nodo* ls, int* k, int val);
 
 int main(){
@@ -30,20 +31,15 @@ int main(){
 }
 
 
-void InsDalFondo(Nodo* ls, int* k, int val) //sostituisce al k-esimo valore dal fondo il valore val
+void InsDalFondo(Nodo* ls, int* k, int val) //sostituisce al k-esimo valore dal fondo il numero val
 {
     if(ls->next != NULL)
-    {
-        system("pause");
         InsDalFondo(ls->next, k, val);
-    }
 
     (*k)--;
 
     if((*k) == 0)
-    {
         ls->num = val;
-    }
 }
 
 void CreateList(Nodo** ptr) //gestisce la creazione della lista
@@ -61,7 +57,7 @@ void addLista(Nodo** ptrls, Nodo* nodo)
     if(*ptrls == NULL) //caso 1: si sta inserendo il primo elemento della lista
         *ptrls = nodo;
     else
-        subAddLista(*ptrls, nodo); //caso 3: si sta aggiungendo un nuovo nodo alla lista
+        subAddLista(*ptrls, nodo); //caso 2: si sta aggiungendo un nuovo nodo alla lista
 }
 
 void subAddLista(Nodo* ls, Nodo* nodo) //aggiunge in coda alla lista
