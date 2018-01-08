@@ -17,22 +17,20 @@ int checkWord(char* str);
 
 int main(){
 
-    Word* ls = NULL;
-	Word** ptrls = &ls;
+    	Word* ls = NULL;
+    	Word** ptrls = &ls;
+    	FILE * text;
+	FILE * errs;
 
-    FILE * text;
 	text = fopen ("D:\ltext.txt", "r");
-    loadWords(ptrls, text);
-    fclose(text);
-
-
-
-    FILE * errs;
+    	loadWords(ptrls, text);
+    	fclose(text);
+	
 	errs = fopen ("D:\lerrors.txt", "w");
-    scanList(ls, errs);
-    fclose(errs);
+    	scanList(ls, errs);
+    	fclose(errs);
 
-    return 0;
+    	return 0;
 }
 
 void loadWords(Word** ptrls, FILE* text)
@@ -51,7 +49,7 @@ void loadWords(Word** ptrls, FILE* text)
             str[len-1] = c;
             c = fgetc (text);
         }while(c != ' ' && c != EOF);
-        str[len] = '\0';
+        str[len] = '\0'; //termina la stringa
 
         createEl(ptrls, str);
 
@@ -86,7 +84,7 @@ void subAddLista(Word* ls, Word* nodo) //aggiunge in coda alla lista
         ls->next = nodo;
 }
 
-void scanList(Word* lista, FILE* errs)
+void scanList(Word* lista, FILE* errs) //scorre la lista e se trova parole sbagliate chiama la funzione di stampa
 {
     if(lista != NULL)
     {
@@ -98,7 +96,7 @@ void scanList(Word* lista, FILE* errs)
 
 /*
 - Gli	unici	caratteri	che	possono	essere	usati	per	comporre	le	parole	di	L	sono	{a, b, c}.	Quindi,	la
-sequenza	dbbcac non	è	una	parola	del	linguaggio	perché	contiene	il	carattere	d;
+sequenza	dbbcac non	Ã¨	una	parola	del	linguaggio	perchÃ©	contiene	il	carattere	d;
 - La	lettera	b deve	sempre	comparire	in	(sotto-)sequenze	formate	da	un	numero	pari	di	b in	successione.
 Per	esempio, le	sequenze bbcac e	abbbb sono	parole	valide	del	linguaggio.	Le	sequenze cabc e	baba
 non	lo	sono.
@@ -128,7 +126,6 @@ int checkWord(char* str)
 
 void printErr(char* str, FILE* errs)
 {
-    printf("\nErrore in %s", str);
     fprintf(errs, str);
     fprintf(errs, "\n");
 }
