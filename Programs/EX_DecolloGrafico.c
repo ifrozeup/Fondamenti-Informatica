@@ -33,19 +33,13 @@ int main(){
             printf("\n");
         }
 
-        //system("PAUSE");
-        //pause(1);
         usleep(40000);
         system("CLS");
 
-        //printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
         c[24-m][m]=' ';
     }
-
     return 0;
 }
-
-
 
 void hidecursor()
 {
