@@ -7,6 +7,7 @@ int main(){
     int i, j;
 
     int** matrix = malloc(n*sizeof(int*));
+    
     for(i=0; i<n; i++)
     {
         matrix[i]=malloc(n*sizeof(int));
@@ -40,7 +41,7 @@ int simm(int** mat){
 
     int i,j, ok = 1;
 
-    for(i=0; i<n; i++)
+    for(i=0; i<n; i++) //controllo uguaglianza vettori esterni membro a membro
     {
         if(mat[n-1][i] != mat[i][n-1])
             ok = 0;
