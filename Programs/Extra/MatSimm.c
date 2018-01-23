@@ -15,11 +15,7 @@ int main(){
         for(j=0; j<N; j++) //genero casualmente
         {
             if(i!=j)
-            {
                 matrix[i][j] = rand()%1000;
-            }else{
-                matrix[i][j] = 0;
-            }
         }
     }
 
@@ -31,6 +27,7 @@ int main(){
                 matrix[i][j] = matrix[j][i];
         }
     }
+    
     int ris = simm(matrix, N);
 
     return ris;
@@ -52,7 +49,7 @@ int simm(int** mat, int n){
         return simm(mat, n);
     }
     else if(ok)
-        return 1;
+        return 1; //simmetrica
     else
-        return 0;
+        return 0; //non simmetrica
 }
