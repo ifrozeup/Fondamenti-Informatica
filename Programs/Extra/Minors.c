@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <math.h>
 
-#define N 10
-#define M 3
+#define N 10 //dimensione matrice in cui cercare
+#define M 3 //dimensione matrice da trovare
 
 int random_int(int min, int max);
 
@@ -19,7 +19,7 @@ int main(){
 
         for(k=0; k<N; k++)
         {
-            mat1[i][k]=random_int(0,1);
+            mat1[i][k]=random_int(0,1); //genero casualmente matrice maggiore fatta solo da 0 e 1
             printf("%d ", mat1[i][k]);
         }
         printf("\n");
@@ -34,13 +34,13 @@ int main(){
 
         for(k=0; k<M; k++)
         {
-            mat2[i][k]= 1; //random_int(0,1);
+            mat2[i][k]= 1; //cerco una matrice MxM composta solo da 1
             printf("%d ", mat2[i][k]);
         }
         printf("\n");
     }
 
-    isMinor(mat1, mat2); //controlla se mat2 è contenuta in mat1
+    isMinor(mat1, mat2); //controlla se mat2 Ã¨ contenuta in mat1
 
     return 0;
 }
@@ -52,13 +52,13 @@ int random_int(int min, int max) //genera un numero casuale tra un minimo e un m
 
 void isMinor(int** mat1, int** mat2)
 {
-    int i, k,j, ris=0;
+    int i, k, j, ris=0;
 
     for(i=0; i<N; i++)
     {
         for(k=0; k<N; k++)
         {
-            if(mat1[i][k] == mat2[0][0] && (k<(N-M)) && (i<(N-M)))
+            if(mat1[i][k] == mat2[0][0] && (k<(N-M)) && (i<(N-M))) //controlla anche di non essere su un bordo
             {
                 ris=0;
                 for(j=0; j<M; j++)
