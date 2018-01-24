@@ -60,7 +60,7 @@ void isMinor(int** mat1, int** mat2)
         {
             if(mat1[i][k] == mat2[0][0] && (k<(N-M)) && (i<(N-M))) //controlla anche di non essere su un bordo
             {
-                ris=0;
+                ris=0; 
                 for(j=0; j<M; j++)
                     ris = ris + isIn(mat1[i+j], k, M, mat2[0+j]);
 
