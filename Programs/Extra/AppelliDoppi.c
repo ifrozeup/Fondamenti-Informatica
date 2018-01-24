@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define COD 4
-#define ESA 3
+#define COD 4 //lunghezza del codice identificativo di ogni esame
+#define ESA 3 //numero di esami per sessioni
 
 int main()
 {
@@ -28,7 +28,7 @@ int main()
     return dopp(appInv, appEst);;
 }
 
-int dopp(char** appInv, char** appEst)
+int dopp(char** appInv, char** appEst) //gestisce la ricerca di doppi
 {
     int i, ris = 0;
 
@@ -40,7 +40,7 @@ int dopp(char** appInv, char** appEst)
     return ris;
 }
 
-int isIn(char* string, char** v)
+int isIn(char* string, char** v) //controlla la presenza di una stringa in un vettore dato
 {
     int i;
 
@@ -52,7 +52,7 @@ int isIn(char* string, char** v)
     return 0;
 }
 
-int firstOcc(char** v, int i)
+int firstOcc(char** v, int i) //controlla di non aver già ricercato la stessa stringa, per evitare doppi
 {
     int k;
     for(k=0; k<ESA; k++)
