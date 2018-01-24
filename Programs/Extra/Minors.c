@@ -75,7 +75,7 @@ void isMinor(int** mat1, int** mat2)
 int isIn(int* v1, int k, int n, int* v2) //controlla che il sottoinsieme di n elementi a partire da v1[k] sia uguale a v2
 {
     int i, ris=1;
-    for(i=k; i<(k+n); i++)
+    for(i=k; i<(k+n) && ris; i++)
     {
         if(v1[i] != v2[i-k])
             ris = 0;
