@@ -5,6 +5,8 @@
 #define M 3 //dimensione matrice da trovare
 
 int random_int(int min, int max);
+int isIn(int* v1, int k, int n, int* v2); 
+void isMinor(int** mat1, int** mat2); 
 
 int main(){
 
@@ -52,18 +54,18 @@ int random_int(int min, int max) //genera un numero casuale tra un minimo e un m
 
 void isMinor(int** mat1, int** mat2)
 {
-    int i, k, j, ris=0;
+    int i, k, j, ris;
 
     for(i=0; i<N; i++)
     {
         for(k=0; k<N; k++)
         {
-            if(mat1[i][k] == mat2[0][0] && (k<(N-M)) && (i<(N-M))) //controlla anche di non essere su un bordo
+            if(mat1[i][k] == mat2[0][0] && (k<(N-M)) && (i<(N-M))) //cerca punto di inizio e controlla di non essere su un bordo
             {
                 ris=1; 
                 for(j=0; j<M && ris; j++)
                     ris = isIn(mat1[i+j], k, M, mat2[0+j]);
-
+                
                 if(ris)
                     printf("\n\nSUCCESSO! coordinate: %d %d\n", i, k);
             }
@@ -81,5 +83,4 @@ int isIn(int* v1, int k, int n, int* v2) //controlla che il sottoinsieme di n el
             ris = 0;
     }
     return ris;
-
 }
