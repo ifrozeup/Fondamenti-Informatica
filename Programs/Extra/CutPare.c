@@ -18,7 +18,7 @@ int main()
 
 void par(char* str)
 {
-    printf("Stringa iniziale: %s\n\n", str);
+    printf("Stringa originale: %s\n\n", str);
     int i, a, b;
 
     for(i=0; i<strlen(str);i++)
@@ -32,8 +32,7 @@ void par(char* str)
         }
     }
 
-    printf("Nuova stringa: %s\n\n", str);
-
+    printf("Stringa modificata: %s", str);
 }
 
 void cutStr(char* str, int a, int b) //taglia gli elementi nell'intervallo a-b di str, sostituendoli con *
