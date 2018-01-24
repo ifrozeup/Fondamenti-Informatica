@@ -49,10 +49,11 @@ void countRep(nodo** ls)
     nodo* app = *ls;
     printf("\n\n");
 
-    do {
+    do 
+    {
         createCtrNode(ctr, app->dato);
         app = app->next;
-    }while(app);
+    } while(app);
 
     printCtr(*ctr);
 }
@@ -73,7 +74,7 @@ void createCtrNode(repe** ctr, int num)
     }
     else //elementi successivi
     {
-        for(;(ptr->next) && (ptr->dato!=num); ptr = ptr->next);
+        for(;(ptr->next) && (ptr->dato!=num); ptr = ptr->next); //scorro lista fino alla prima posizione utile
 
         if(ptr->dato == num) //aggiungo ripetizioni
         {
