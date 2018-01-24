@@ -1,9 +1,11 @@
 #include <stdio.h>
 #define MAX 10
 
+int findLen(int* v, int i, int max);
+
 int main(){
-int j;
-int* v = malloc(MAX*sizeof(int));
+        int j;
+        int* v = malloc(MAX*sizeof(int));
 
         for(j=0; j<MAX; j++) //genero casualmente
         {
@@ -23,17 +25,14 @@ void subSeq(int* v)
     for(i=0; i<(MAX-1);)
     {
         len = 1;
-        if(i<(MAX-1) && v[i]<v[i+1])
+        if(i<(MAX-1) && v[i]<v[i+1]) //se esiste sottosequenza 
         {
-            len += findLen(v, i, MAX)-i;
-            printf("\nlen: %d\n", len);
+            len += findLen(v, i, MAX)-i; //cerco l'indice di fine (len invece contiene la dimensione)
 
-            for(j=i; j<(i+len); j++)
-            {
+            for(j=i; j<(i+len); j++) //stampo sottosequenza
                 printf("%d, ",v[j]);
-            }
         }
-        i+=len;
+        i+=len; //eventualmente salto valori già analizzati
     }
 }
 
